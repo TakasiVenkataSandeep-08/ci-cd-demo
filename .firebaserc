@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "ci-cd-demo-de8ca"
+  },
+  "targets": {
+    "ci-cd-demo-de8ca": {
+      "hosting": {
+        "prod": [
+          "ci-cd-demo-de8ca"
+        ],
+        "staging": [
+          "staging-ci-cd-demo"
+        ],
+        "testing": [
+          "testing-ci-cd-demo"
+        ]
+      }
+    }
+  }
+}
