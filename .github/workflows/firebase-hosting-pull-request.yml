@@ -40,4 +40,4 @@ jobs:
       - name: Archive build Artifact
         uses: actions/upload-artifact@master
         with:
-          path: dist
+          path: build
