@@ -21,16 +21,16 @@ jobs:
           firebase use ci-cd-demo-de8ca --token ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Create .env file for production
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_VUE_APP_SECRET_KEY: ${{ secrets.PROD_SECRET_KEY }}
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.PROD_SECRET_KEY }}
 
       - name: Create .env file for testing
-      if: github.ref == 'refs/heads/testing'
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_VUE_APP_SECRET_KEY: ${{ secrets.TEST_SECRET_KEY }}
+        if: github.ref == 'refs/heads/testing'
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.TEST_SECRET_KEY }}
 
       - name: Build website
         run: |
