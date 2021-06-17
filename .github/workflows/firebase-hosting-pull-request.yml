@@ -25,7 +25,7 @@ jobs:
         if: github.ref == 'refs/heads/testing'
         run: |
           sudo npm install -g firebase-tools
-          firebase use ci-cd-demo-de8ca --token ${{ secrets.FIREBASE_TOKEN }}
+          firebase use testing-ci-cd-demo-44e0b --token ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Create .env file for production
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
@@ -46,7 +46,7 @@ jobs:
 
       - name: Deploy to testing site
         if: github.ref == 'refs/heads/testing'
-        run: firebase deploy -P testing --non-interactive --token ${{ secrets.FIREBASE_TOKEN }} -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
+        run: firebase deploy --non-interactive --token ${{ secrets.FIREBASE_TOKEN }} -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
 
       - name: Deploy to staging site
         if: github.ref == 'refs/heads/staging'
