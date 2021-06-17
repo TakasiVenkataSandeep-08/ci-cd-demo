@@ -1,22 +1,21 @@
 <template>
-    <div>
-        <h1>Login</h1>
-        <LoginForm />
-    </div>
-    
+  <div>
+    <h1>Staging Site Login Form</h1>
+    <LoginForm />
+  </div>
 </template>
 <script>
-import LoginForm from '../components/LoginForm'
+import LoginForm from "../components/LoginForm";
 export default {
-     components:{
-         LoginForm
-     }
-}
+  components: {
+    LoginForm,
+  },
+};
 </script>
 
 <style scoped>
-h1{
-    text-align: center;
-    margin-top: 20px;
+h1 {
+  text-align: center;
+  margin-top: 20px;
 }
 </style>
