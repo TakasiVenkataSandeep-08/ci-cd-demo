@@ -1,0 +1,50 @@
+{
+  "users":[
+    {
+      "id":1,
+      "name":"user1",
+      "email":"user1@test.com",
+      "password":"user1@123",
+      "token":"BJHDBSD78EWEWBFFWE98FUQED89WEF"
+    },
+    {
+      "id":2,
+      "name":"user2",
+      "email":"user2@test.com",
+      "password":"user2@123",
+      "token":"BJHDBSD78UUSGD78EWWE98FUQED89WF"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 3,
+      "text": "Buy Apple MacBook Pro",
+      "day": "5th may 2021 at 1:04pm",
+      "reminder": true
+    },
+    {
+      "id": 4,
+      "text": "Buy Apple MacBook Pro",
+      "day": "5th may 2021 at 1:04pm",
+      "reminder": true
+    },
+    {
+      "text": "sanju",
+      "day": "sasasa",
+      "reminder": true,
+      "id": 5
+    },
+    {
+      "text": "dsdsds",
+      "day": "sasasa",
+      "reminder": false,
+      "id": 6
+    },
+    {
+      "text": "sanju",
+      "day": "sasasa",
+      "reminder": true,
+      "id": 7
+    }
+  ]
+}
