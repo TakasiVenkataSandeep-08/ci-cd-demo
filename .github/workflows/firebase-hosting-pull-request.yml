@@ -46,7 +46,7 @@ jobs:
 
       - name: Deploy to testing site
         if: github.ref == 'refs/heads/testing'
-        run: firebase deploy --non-interactive --token ${{ secrets.FIREBASE_TOKEN }} -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
+        run: firebase deploy --only hosting:testing --non-interactive --token ${{ secrets.FIREBASE_TOKEN }} -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
 
       - name: Deploy to staging site
         if: github.ref == 'refs/heads/staging'
