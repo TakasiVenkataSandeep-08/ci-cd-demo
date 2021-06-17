@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Testing Site Login Form</h1>
+    <h1>Staging Site Login Form</h1>
     <LoginForm />
   </div>
 </template>
