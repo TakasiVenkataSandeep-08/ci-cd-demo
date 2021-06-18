@@ -99,7 +99,7 @@ jobs:
           yarn
           yarn build
 
-      - name: Deploy to production site
+      - name: Deploy to staging site
         run: firebase deploy --only hosting:staging --non-interactive --token ${{ secrets.FIREBASE_TOKEN }} -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
 
       - name: Archive build Artifact
