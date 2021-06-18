@@ -10,6 +10,10 @@ export default {
   components: {
     LoginForm,
   },
+  mounted() {
+    console.log(process.env.VUE_APP_SECRET_KEY);
+    console.log(process.env.VUE_APP_SECRET_KEY_CHECK);
+  },
 };
 </script>
 

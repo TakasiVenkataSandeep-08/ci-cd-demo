@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "ci-cd-demo-de8ca"
+    "default": "ci-cd-demo-de8ca",
+    "testing": "testing-ci-cd-demo-44e0b"
   },
   "targets": {
     "ci-cd-demo-de8ca": {
@@ -12,7 +13,14 @@
           "staging-ci-cd-demo"
         ],
         "testing": [
-          "testing-ci-cd-demo"
+          "testing-ci-cd-demo-44e0b"
+        ]
+      }
+    },
+    "testing-ci-cd-demo-44e0b": {
+      "hosting": {
+        "testing": [
+          "testing-ci-cd-demo-44e0b"
         ]
       }
     }
