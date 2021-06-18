@@ -25,6 +25,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          envkey_VUE_APP_SECRET_KEY_CHECK: ${{ secrets.SECRET_KEY_CHECK }}
 
       - name: Build website
         run: |
@@ -57,6 +58,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          envkey_VUE_APP_SECRET_KEY_CHECK: ${{ secrets.SECRET_KEY_CHECK }}
 
       - name: Build website
         run: |
@@ -90,6 +92,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          envkey_VUE_APP_SECRET_KEY_CHECK: ${{ secrets.SECRET_KEY_CHECK }}
 
       - name: Build website
         run: |
