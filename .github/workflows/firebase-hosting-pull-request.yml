@@ -10,6 +10,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
+    environment:
+      name: prod
+    if: github.ref == 'refs/heads/testing'
+    environment:
+      name: testing
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -31,13 +37,13 @@ jobs:
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
         uses: SpicyPizza/create-envfile@v1
         with:
-          envkey_VUE_APP_SECRET_KEY: ${{ secrets.PROD_SECRET_KEY }}
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Create .env file for testing
         if: github.ref == 'refs/heads/testing'
         uses: SpicyPizza/create-envfile@v1
         with:
-          envkey_VUE_APP_SECRET_KEY: ${{ secrets.TEST_SECRET_KEY }}
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Build website
         run: |
