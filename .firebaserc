@@ -16,6 +16,13 @@
           "testing-ci-cd-demo-44e0b"
         ]
       }
+    },
+    "testing-ci-cd-demo-44e0b": {
+      "hosting": {
+        "testing": [
+          "testing-ci-cd-demo-44e0b"
+        ]
+      }
     }
   }
 }
