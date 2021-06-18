@@ -14,14 +14,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: use prod environment
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
-        environment:
-          name: prod
-      - name: use testing environment
-        if: github.ref == 'refs/heads/testing'
-        environment:
-          name: testing
 
       - name: Install firebase tools for prod
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
@@ -37,12 +29,16 @@ jobs:
 
       - name: Create .env file for production
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
+        environment:
+          name: prod
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Create .env file for testing
         if: github.ref == 'refs/heads/testing'
+        environment:
+          name: testing
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
