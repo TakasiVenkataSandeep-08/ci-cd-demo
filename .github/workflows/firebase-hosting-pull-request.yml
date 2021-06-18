@@ -10,24 +10,26 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
-    environment:
-      name: prod
-    if: github.ref == 'refs/heads/testing'
-    environment:
-      name: testing
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: use prod environment
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
+        environment:
+          name: prod
+      - name: use testing environment
+        if: github.ref == 'refs/heads/testing'
+        environment:
+          name: testing
 
-      - name: Install firebase tools
+      - name: Install firebase tools for prod
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
         run: |
           sudo npm install -g firebase-tools
           firebase use ci-cd-demo-de8ca --token ${{ secrets.FIREBASE_TOKEN }}
 
-      - name: Install firebase tools
+      - name: Install firebase tools for testing
         if: github.ref == 'refs/heads/testing'
         run: |
           sudo npm install -g firebase-tools
