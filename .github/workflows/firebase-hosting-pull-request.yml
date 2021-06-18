@@ -9,6 +9,16 @@ on:
 
 jobs:
   deploy:
+    name: deploy based on testing
+    if: github.ref == 'refs/heads/testing'
+    environment:
+      name: testing
+    runs-on: ubuntu-latest
+
+    name: deploy based on production
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
+    environment:
+      name: prod
     runs-on: ubuntu-latest
 
     steps:
@@ -29,16 +39,12 @@ jobs:
 
       - name: Create .env file for production
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
-        environment:
-          name: prod
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Create .env file for testing
         if: github.ref == 'refs/heads/testing'
-        environment:
-          name: testing
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
