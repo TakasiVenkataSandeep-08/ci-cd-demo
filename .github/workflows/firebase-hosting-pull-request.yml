@@ -11,6 +11,7 @@ jobs:
     if: github.ref == 'refs/heads/testing'
     environment:
       name: test
+      url: https://testing-ci-cd-demo-44e0b.web.app/login
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -43,6 +44,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
     environment:
       name: prod
+      url: https://ci-cd-demo-de8ca.web.app/login
     runs-on: ubuntu-latest
 
     steps:
@@ -77,6 +79,7 @@ jobs:
     if: github.ref == 'refs/heads/staging'
     environment:
       name: prod
+      url: https://staging-ci-cd-demo.web.app/login
     runs-on: ubuntu-latest
 
     steps:
