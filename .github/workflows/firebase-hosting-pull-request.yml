@@ -9,9 +9,6 @@ on:
 jobs:
   TESTING:
     if: github.ref == 'refs/heads/testing'
-    environment:
-      name: test
-      url: https://testing-ci-cd-demo-44e0b.web.app/login
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -25,8 +22,7 @@ jobs:
       - name: Creating .env file
         uses: SpicyPizza/create-envfile@v1
         with:
-          envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          envkey_VUE_APP_SECRET_KEY_CHECK: ${{ secrets.SECRET_KEY_CHECK }}
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.TEST_SECRET_KEY }}
 
       - name: Build website
         run: |
@@ -42,9 +38,6 @@ jobs:
           path: dist
   PROD:
     if: github.ref == 'refs/heads/master'
-    environment:
-      name: prod
-      url: https://ci-cd-demo-de8ca.web.app/login
     runs-on: ubuntu-latest
 
     steps:
@@ -59,8 +52,7 @@ jobs:
       - name: Creating .env file
         uses: SpicyPizza/create-envfile@v1
         with:
-          envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          envkey_VUE_APP_SECRET_KEY_CHECK: ${{ secrets.SECRET_KEY_CHECK }}
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.PROD_SECRET_KEY }}
 
       - name: Build website
         run: |
@@ -77,9 +69,6 @@ jobs:
 
   STAGE:
     if: github.ref == 'refs/heads/staging'
-    environment:
-      name: prod
-      url: https://staging-ci-cd-demo.web.app/login
     runs-on: ubuntu-latest
 
     steps:
@@ -94,8 +83,7 @@ jobs:
       - name: Creating .env file
         uses: SpicyPizza/create-envfile@v1
         with:
-          envkey_VUE_APP_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          envkey_VUE_APP_SECRET_KEY_CHECK: ${{ secrets.SECRET_KEY_CHECK }}
+          envkey_VUE_APP_SECRET_KEY: ${{ secrets.PROD_SECRET_KEY }}
 
       - name: Build website
         run: |
